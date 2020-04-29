@@ -1,0 +1,19 @@
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "esmodules": true
+        }
+      }
+    ],
+    "@babel/preset-typescript",
+    "@babel/preset-react"
+  ],
+  "plugins": [
+    "react-hot-loader/babel",
+    "babel-plugin-styled-components",
+    "babel-plugin-transform-class-properties"
+  ]
+}
