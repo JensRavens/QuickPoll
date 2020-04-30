@@ -35,6 +35,14 @@ export function updateRoom(
   return getRoom(id)!;
 }
 
+export function resetVotes({ id }: { id: string }): Room {
+  const changes = { vote: undefined };
+  writeDB
+    .table("users")
+    .update(writeDB.table("users").where({ roomId: id }), changes);
+  return getRoom(id)!;
+}
+
 export function vote({
   roomId,
   userId,

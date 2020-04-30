@@ -49,3 +49,7 @@ export async function vote(
 ): Promise<void> {
   await bus.call("vote", { roomId, vote });
 }
+
+export async function resetVotes({ id }: { id: string }): Promise<void> {
+  await bus.call("reset-votes", { id });
+}

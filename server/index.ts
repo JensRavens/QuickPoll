@@ -6,7 +6,7 @@ import socket from "socket.io";
 import morgan from "morgan";
 import crypto from "crypto";
 import { MessageBus } from "../common/MessageBus";
-import { createRoom, getRoom, updateRoom, vote } from "./room";
+import { createRoom, getRoom, updateRoom, vote, resetVotes } from "./room";
 import { Member, Room } from "../common/room";
 import { fetchUser } from "./user";
 import { writeDB } from "./store";
@@ -81,6 +81,11 @@ io.on("connection", (socket) => {
 
   bus.on("vote", (payload) => {
     const room = vote({ ...payload, userId: currentUser.id });
+    sendRoomUpdate(room);
+  });
+
+  bus.on("reset-votes", (payload) => {
+    const room = resetVotes(payload);
     sendRoomUpdate(room);
   });
 

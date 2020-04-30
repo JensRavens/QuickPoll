@@ -25,6 +25,10 @@ export interface MessageBusEventMap {
     payload: { roomId: string; vote: string | undefined };
     response: void;
   };
+  "reset-votes": {
+    payload: { id: string };
+    response: void;
+  };
 }
 
 export type MessageBusEventName = Extract<keyof MessageBusEventMap, string>;
