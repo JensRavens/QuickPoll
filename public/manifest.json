@@ -1,0 +1,20 @@
+{
+  "name": "QuickVote",
+  "short_name": "QuickVote",
+  "start_url": "/",
+  "background_color": "#FBFBFD",
+  "theme_color": "#1665D8",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon_full.png",
+      "sizes": "1024x1024",
+      "type": "image/png"
+    }
+  ]
+}

@@ -6,8 +6,6 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const webpack = require("webpack");
 
-const api = process.env.API_HOST || "https://staging.flinkapp.io/";
-
 const config = {
   mode,
   entry: "./client/index.tsx",
@@ -103,13 +101,8 @@ const config = {
     disableHostCheck: true,
     transportMode: "ws",
     proxy: {
-      "/graphql": {
-        target: api,
-        secure: false,
-        changeOrigin: true,
-      },
-      "/cable": {
-        target: api,
+      "/socket.io": {
+        target: "http://localhost:3000",
         secure: false,
         changeOrigin: true,
         ws: true,
