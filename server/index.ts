@@ -3,11 +3,10 @@ import express from "express";
 import http from "http";
 import dotenv from "dotenv";
 import socket from "socket.io";
-import morgan from "morgan";
-import crypto from "crypto";
+import fallback from "express-history-api-fallback";
 import { MessageBus } from "../common/MessageBus";
 import { createRoom, getRoom, updateRoom, vote, resetVotes } from "./room";
-import { Member, Room } from "../common/room";
+import { Room } from "../common/room";
 import { fetchUser } from "./user";
 import { writeDB } from "./store";
 
@@ -68,10 +67,6 @@ io.on("connection", (socket) => {
   });
 
   bus.on("update-profile", (payload) => {
-    if (payload.email && payload.email.includes("@")) {
-      const hash = crypto.createHash("md5").update(payload.email).digest("hex");
-      (payload as Member).avatarUrl = `https://www.gravatar.com/avatar/${hash}?d=mm&s=80`;
-    }
     writeDB.table("users").update(currentUser, payload);
     const room = getRoom(currentUser.roomId!);
     if (room) {
@@ -98,8 +93,9 @@ io.on("connection", (socket) => {
   });
 });
 
-app.use(morgan());
-app.use(express.static("dist"));
+const root = `./dist`;
+app.use(express.static(root));
+app.use(fallback("index.html", { root }));
 
 server.listen(port, () => {
   bootLogger.info(`listening on *:${port}`);
