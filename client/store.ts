@@ -5,20 +5,22 @@ import { MutableDB, reducer, DataTable, DB } from "redux-database";
 import { Room } from "../common/room";
 import EJSON from "ejson";
 import { guid } from "../common/util";
+import { pick } from "lodash";
 
 export interface State {
   settings: {
     accountId: string;
+    currentRoom?: Room;
+    name?: string;
+    email?: string;
   };
-  data: {
-    rooms: DataTable<Room>;
-  };
+  data: {};
 }
 
-const emptyTable = {
-  byId: {},
-  ids: [],
-};
+// const emptyTable = {
+//   byId: {},
+//   ids: [],
+// };
 
 const localStorageVersion = "v1";
 const settingsKey = `settings-quickvote-${localStorageVersion}`;
@@ -33,9 +35,7 @@ const initialState: State = {
     accountId: guid(),
     ...savedSettings,
   },
-  data: {
-    rooms: emptyTable,
-  },
+  data: {},
 };
 
 export const store = createStore(
@@ -48,8 +48,10 @@ export const store = createStore(
 );
 
 store.subscribe(() => {
-  const settings = EJSON.stringify(store.getState().settings);
-  localStorage.setItem(settingsKey, settings);
+  const settingsString = EJSON.stringify(
+    pick(store.getState().settings, "accountId", "name", "email")
+  );
+  localStorage.setItem(settingsKey, settingsString);
 });
 
 export const writeDB = new MutableDB(initialState, { store });

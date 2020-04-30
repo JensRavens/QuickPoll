@@ -14,10 +14,9 @@ export const bus = new MessageBus(socket);
 (window as any).bus = bus;
 export async function createRoom(): Promise<Room> {
   const room = await bus.call("create-room", {});
-  writeDB.table("rooms").upsert(room);
+  writeDB.set("currentRoom", room);
   return room;
 }
-(window as any).cr = createRoom;
 
 export async function updateRoom({
   id,
@@ -26,21 +25,39 @@ export async function updateRoom({
   id: string;
   name: string;
 }): Promise<void> {
-  const result = await bus.call("update-room", { id, name });
-  return result;
+  await bus.call("update-room", { id, name });
 }
-(window as any).ur = updateRoom;
 
 export async function joinRoom({ id }: { id: string }): Promise<Room> {
   const result = await bus.call("join-room", { id });
   if (!result) {
     throw new Error("Cannot join " + id);
   }
-  writeDB.table("rooms").upsert(result);
+  writeDB.set("currentRoom", result);
   return result;
 }
-(window as any).jr = joinRoom;
+
+export async function vote(
+  roomId: string,
+  vote: string | undefined
+): Promise<void> {
+  await bus.call("vote", { roomId, vote });
+}
+
+export async function updateProfile(changes: {
+  name?: string;
+  email?: string;
+}): Promise<void> {
+  await bus.call("update-profile", changes);
+  if (changes.name !== undefined) {
+    writeDB.set("name", changes.name);
+  }
+  if (changes.email !== undefined) {
+    writeDB.set("email", changes.email);
+  }
+}
 
 bus.on("room-updated", (room) => {
-  writeDB.table("rooms").upsert(room);
+  console.debug("got update", room);
+  writeDB.set("currentRoom", room);
 });

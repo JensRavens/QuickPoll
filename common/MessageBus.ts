@@ -6,7 +6,11 @@ export interface MessageBusEventMap {
     response: Room;
   };
   "update-room": {
-    payload: { id: string; name?: string };
+    payload: { id: string; name?: string; options?: string[] };
+    response: void;
+  };
+  "update-profile": {
+    payload: { name?: string; email?: string };
     response: void;
   };
   "join-room": {
@@ -15,6 +19,10 @@ export interface MessageBusEventMap {
   };
   "room-updated": {
     payload: Room;
+    response: void;
+  };
+  vote: {
+    payload: { roomId: string; vote: string | undefined };
     response: void;
   };
 }

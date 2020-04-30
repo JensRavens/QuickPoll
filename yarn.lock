@@ -7732,10 +7732,10 @@ redent@^1.0.0:
     indent-string "^2.1.0"
     strip-indent "^1.0.1"
 
-redux-database@^0.0.17:
-  version "0.0.17"
-  resolved "https://registry.yarnpkg.com/redux-database/-/redux-database-0.0.17.tgz#6b18927adac7a95c83facb94ad0d4c05e0c831bd"
-  integrity sha512-/6eCgCBXTaQGjCq++LQpt9LY+oaUY+Bzh6d1DYfWMiwXDf6yoa8tCHmmHApEnx2BbWZuLeibryI0k/wf/R8AmA==
+redux-database@^0.0.18:
+  version "0.0.18"
+  resolved "https://registry.yarnpkg.com/redux-database/-/redux-database-0.0.18.tgz#3ff3e9fbf1ad25dcf94fe587d000754dc1d9ee45"
+  integrity sha512-4JufNGMLjPTqOUkDL4y4BTSJD17WelMefu37q4VKu/UFeeFe/aHoqGjMy/HGif4GZRo8SN3mEFl1CH6tv5hVCA==
 
 redux@^4.0.5:
   version "4.0.5"

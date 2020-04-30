@@ -60,7 +60,7 @@
     "react-hot-loader": "^4.12.20",
     "react-router-dom": "^5.1.2",
     "redux": "^4.0.5",
-    "redux-database": "^0.0.17",
+    "redux-database": "^0.0.18",
     "socket.io": "^2.3.0",
     "source-map-loader": "^0.2.4",
     "style-loader": "^1.2.1",
