@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="4px" viewBox="0 0 20 4" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 64 (93537) - https://sketch.com -->
+    <title>Icon/20px/More</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M2,8 C3.1045695,8 4,8.8954305 4,10 C4,11.1045695 3.1045695,12 2,12 C0.8954305,12 0,11.1045695 0,10 C0,8.8954305 0.8954305,8 2,8 Z M10,8 C11.1045695,8 12,8.8954305 12,10 C12,11.1045695 11.1045695,12 10,12 C8.8954305,12 8,11.1045695 8,10 C8,8.8954305 8.8954305,8 10,8 Z M18,8 C19.1045695,8 20,8.8954305 20,10 C20,11.1045695 19.1045695,12 18,12 C16.8954305,12 16,11.1045695 16,10 C16,8.8954305 16.8954305,8 18,8 Z" id="path-1"></path>
+    </defs>
+    <g id="(8)-App-1---Social-Network" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Homefeed" transform="translate(-800.000000, -356.000000)">
+            <g id="Post" transform="translate(300.000000, 328.000000)">
+                <g id="Head" transform="translate(20.000000, 17.000000)">
+                    <g id="Icon/20px/More" transform="translate(480.000000, 3.000000)">
+                        <mask id="mask-2" fill="white">
+                            <use xlink:href="#path-1"></use>
+                        </mask>
+                        <use id="More" fill-opacity="0" fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+                        <g id="⚙️Atoms/Colour/Grey-Darker/1---100%" mask="url(#mask-2)" fill="#9EA0A5" fill-rule="evenodd">
+                            <g transform="translate(-1.000000, -1.000000)" id="Colour">
+                                <rect x="0" y="0" width="22" height="22"></rect>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

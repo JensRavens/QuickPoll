@@ -1,7 +1,7 @@
 import { createStore } from "redux";
 import { useState, useEffect, useRef } from "react";
 import { isEqual } from "lodash";
-import { MutableDB, reducer, DataTable, DB } from "redux-database";
+import { MutableDB, reducer, DB } from "redux-database";
 import { Room } from "../common/room";
 import EJSON from "ejson";
 import { guid } from "../common/util";
@@ -16,11 +16,6 @@ export interface State {
   };
   data: {};
 }
-
-// const emptyTable = {
-//   byId: {},
-//   ids: [],
-// };
 
 const localStorageVersion = "v1";
 const settingsKey = `settings-quickvote-${localStorageVersion}`;
