@@ -6,7 +6,7 @@
   "author": "Jens Ravens <mail@jensravens.com>",
   "license": "UNLICENSED",
   "scripts": {
-    "start": "yarn start:web",
+    "start": "yarn start:server",
     "start:web": "webpack-dev-server",
     "start:server": "ts-node-dev --respawn --clear --transpile-only server/index.ts",
     "build": "yarn build:web",
